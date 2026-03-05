@@ -4,9 +4,7 @@ from sqlalchemy import create_engine
 from dotenv import load_dotenv
 from datetime import date
 
-# ============================================================
 # 1. CARGAR VARIABLES DE ENTORNO
-# ============================================================
 load_dotenv()
 
 DB_HOST     = os.getenv("DB_HOST")
@@ -15,9 +13,7 @@ DB_NAME     = os.getenv("DB_NAME")
 DB_USER     = os.getenv("DB_USER")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
 
-# ============================================================
-# 2. QUERY (la misma del ejercicio 1c)
-# ============================================================
+# 2. QUERY
 QUERY = """
     SELECT DISTINCT ON (a.user_id)
         a.email,
@@ -31,15 +27,11 @@ QUERY = """
     ORDER BY a.user_id, a.booking_created_at DESC;
 """
 
-# ============================================================
 # 3. CONECTAR, EJECUTAR Y EXPORTAR
-# ============================================================
 def main():
     print("Conectando a la base de datos...")
 
     try:
-        # SQLAlchemy arma la URL de conexion con todas las credenciales
-        # Formato: postgresql://usuario:password@host:puerto/base_de_datos
         engine = create_engine(
             f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
         )
