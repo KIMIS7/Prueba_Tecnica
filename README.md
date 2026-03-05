@@ -5,7 +5,6 @@
 
 ## Parte 1 — SQL
 
-### Supuestos generales
 - Las "ultimas 8 semanas" se calculan desde el inicio de la semana actual hacia atras usando `DATE_TRUNC`.
 - El gasto de marketing se asocia al canal por `mkt_master.source` y los desembolsos por `app_master.mkt_source`.
 - Si un canal no tuvo desembolsos en una semana, el CAC se reporta como NULL con una nota explicativa en lugar de generar un error.
